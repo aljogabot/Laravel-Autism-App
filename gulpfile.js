@@ -11,7 +11,7 @@ var elixir = require('laravel-elixir');
  |
  */
 
-elixir.config.babel.enabled = false;
+//elixir.config.babel.enabled = false;
 
 elixir(
     function( mix ) {
@@ -28,7 +28,12 @@ elixir(
                 'buttons.css',
                 'ionicons.min.css',
                 'font-awesome.css',
-                'magnific-popup.css'
+                'magnific-popup.css',
+
+                // App Specific
+                'humanmsg.css',
+                'jquery.gritter.css',
+                'core.css'
             ],
             'public/css/app-all.css'
         );
@@ -56,17 +61,29 @@ elixir(
             [
                 'libs/lazyload.js',
                 'libs/jquery.gritter.min.js',
+                'libs/jquery.validate.js',
                 'libs/jquery.form.js',
                 'libs/humanmsg.js',
                 'core/global.js',
                 'core/tools.js',
                 'libs/config.js',
                 'libs/main.js',
+                'views/application.js'
             ],
             'public/js/app-code.js'
         );
 
-        mix.version( [ 'public/css/app-all.css', 'public/js/app-libs.js', 'public/js/app-code.js' ] );
+        mix.copy(
+            'resources/assets/js/views', 'public/js/views'
+        );
+
+        mix.version(
+            [
+                'public/css/app-all.css',
+                'public/js/app-libs.js',
+                'public/js/app-code.js'
+            ]
+        );
 
     }
 );

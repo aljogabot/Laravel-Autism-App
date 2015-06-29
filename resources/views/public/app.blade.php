@@ -14,20 +14,26 @@
         <title>Autism Social</title>
 
         <!-- Stylesheets -->
-        <link rel="stylesheet" href="{{ elixir( 'css/app-all.css' ) }}"/>
+        <link rel="stylesheet" href="{{ elixir( 'css/app-all.css' ) }}" />
 
     </head>
     <body>
-        @section( 'header' )
-            @include( 'public.blocks.header' )
-        @stop
-        @yield( 'navigation' )
 
-        @yield( 'content' )
+        <div id="bg-boxed">
+            <div class="boxed">
+                @include( 'public.blocks.header' )
+                <!-- Begin Content Section -->
+                <section>
+                    @yield( 'content' )
+                </section>
 
+                @include( 'public.blocks.footer' )
+            </div>
+        </div>
 
         <script type="text/javascript" src="{{ elixir( 'js/app-libs.js' ) }}"></script>
         <script type="text/javascript" src="{{ elixir( 'js/app-code.js' ) }}"></script>
+        @include( 'public.blocks.site-config' )
         @yield( 'scripts' )
     </body>
 </html>

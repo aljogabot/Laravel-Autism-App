@@ -144,6 +144,12 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
+        'DaveJamesMiller\Breadcrumbs\ServiceProvider',
+        'App\Providers\SiteConfigServiceProvider',
+        'App\Providers\LatestPostsProvider',
+        'willvincent\Feeds\FeedsServiceProvider',
+
+        'Bogart\ServiceProvider'
 
 	],
 
@@ -192,6 +198,10 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+
+        // Application Added Facades ...
+        'Breadcrumbs' => 'DaveJamesMiller\Breadcrumbs\Facade',
+        'Feeds'    => 'willvincent\Feeds\Facades\FeedsFacade',
 
 	],
 

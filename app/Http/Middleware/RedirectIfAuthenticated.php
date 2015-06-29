@@ -3,6 +3,7 @@
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\RedirectResponse;
+use \Bogart\Json;
 
 class RedirectIfAuthenticated {
 
@@ -31,11 +32,17 @@ class RedirectIfAuthenticated {
 	 * @param  \Closure  $next
 	 * @return mixed
 	 */
-	public function handle($request, Closure $next)
+	public function handle($request, Closure $next )
 	{
 		if ($this->auth->check())
 		{
-			return new RedirectResponse(url('/home'));
+            if( $request->ajax() ) {
+                $json = new Json();
+
+                return $json->error( 'You are already authenticated.' );
+            }
+
+			return new RedirectResponse(url('/'));
 		}
 
 		return $next($request);

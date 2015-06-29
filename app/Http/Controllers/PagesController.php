@@ -2,7 +2,7 @@
 
     namespace App\Http\Controllers;
 
-    class HomeController extends Controller {
+    class PagesController extends Controller {
 
         /*
         |--------------------------------------------------------------------------
@@ -20,9 +20,15 @@
          *
          * @return Response
          */
-        public function index() {
+        public function home() {
 
-            return view( 'home' );
+            return view( 'public.pages.home' );
+
+        }
+
+        public function contact() {
+
+            return view( 'public.pages.contact' );
 
         }
 
